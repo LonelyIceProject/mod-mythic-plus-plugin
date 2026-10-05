@@ -2,3 +2,5 @@
 /_deps/
 /server/
 /dist/
+__pycache__/
+*.pyc

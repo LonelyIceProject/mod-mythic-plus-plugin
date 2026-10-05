@@ -7,8 +7,8 @@
     "ru": "Mythic Plus"
   },
   "description": {
-    "en": "Mythic Plus for LonelyIce",
-    "ru": "Mythic Plus для LonelyIce"
+    "en": "Experimental dungeon difficulty, scaling, rewards and advancement. Changes game data and requires a client patch. Independent of ALE and AIO.",
+    "ru": "Экспериментальные сложности подземелий, масштабирование, награды и развитие. Изменяет игровые данные и требует клиентский патч. Не зависит от ALE и AIO."
   },
   "authors": [
     "araxiaonline",
@@ -27,7 +27,8 @@
     "abi": "lonelyice-ac-2"
   },
   "platforms": [
-    "windows-x64"
+    "windows-x64",
+    "linux-x64"
   ],
   "server": {
     "library": "mod_mythic_plus"
@@ -37,5 +38,6 @@
   "databases": {
     "world": "data/sql/db-world",
     "characters": "data/sql/db-characters"
-  }
+  },
+  "patches": "data/patches.json"
 }

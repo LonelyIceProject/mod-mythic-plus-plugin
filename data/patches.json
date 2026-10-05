@@ -1,0 +1,239 @@
+{
+  "ids": {
+    "titans-strength": {
+      "table": "Spell.dbc"
+    },
+    "steel-forged": {
+      "table": "Spell.dbc"
+    },
+    "celestial-grace": {
+      "table": "Spell.dbc"
+    },
+    "forbidden-knowledge": {
+      "table": "Spell.dbc"
+    },
+    "spectral-reflexes": {
+      "table": "Spell.dbc"
+    },
+    "eldritch-barrier": {
+      "table": "Spell.dbc"
+    },
+    "hellfire-shielding": {
+      "table": "Spell.dbc"
+    },
+    "primal-endurance": {
+      "table": "Spell.dbc"
+    },
+    "lichs-bane": {
+      "table": "Spell.dbc"
+    },
+    "glacial-fortress": {
+      "table": "Spell.dbc"
+    }
+  },
+  "patches": [
+    {
+      "table": "Spell.dbc",
+      "rows": [
+        {
+          "id": "@titans-strength",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 29,
+            "110": 0,
+            "136": {
+              "en": "Titan's Strength"
+            }
+          }
+        },
+        {
+          "id": "@steel-forged",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 29,
+            "110": 2,
+            "136": {
+              "en": "Steel Forged"
+            }
+          }
+        },
+        {
+          "id": "@celestial-grace",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 29,
+            "110": 4,
+            "136": {
+              "en": "Celestial Grace"
+            }
+          }
+        },
+        {
+          "id": "@forbidden-knowledge",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 29,
+            "110": 3,
+            "136": {
+              "en": "Forbidden Knowledge"
+            }
+          }
+        },
+        {
+          "id": "@spectral-reflexes",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 29,
+            "110": 1,
+            "136": {
+              "en": "Spectral Reflexes"
+            }
+          }
+        },
+        {
+          "id": "@eldritch-barrier",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 22,
+            "110": 64,
+            "136": {
+              "en": "Eldritch Barrier"
+            }
+          }
+        },
+        {
+          "id": "@hellfire-shielding",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 22,
+            "110": 4,
+            "136": {
+              "en": "Hellfire Shielding"
+            }
+          }
+        },
+        {
+          "id": "@primal-endurance",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 22,
+            "110": 8,
+            "136": {
+              "en": "Primal Endurance"
+            }
+          }
+        },
+        {
+          "id": "@lichs-bane",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 22,
+            "110": 32,
+            "136": {
+              "en": "Lich's Bane"
+            }
+          }
+        },
+        {
+          "id": "@glacial-fortress",
+          "set": {
+            "4": 192,
+            "28": 1,
+            "40": 21,
+            "46": 1,
+            "68": -1,
+            "71": 6,
+            "86": 1,
+            "95": 22,
+            "110": 16,
+            "136": {
+              "en": "Glacial Fortress"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "install": {
+    "world": [
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:titans-strength}}, 'spell_mp_titans_strength_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:steel-forged}}, 'spell_mp_steel_forged_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:celestial-grace}}, 'spell_mp_celestial_grace_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:forbidden-knowledge}}, 'spell_mp_forbidden_knowledge_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:spectral-reflexes}}, 'spell_mp_spectral_reflexes_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:eldritch-barrier}}, 'spell_mp_eldritch_barrier_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:hellfire-shielding}}, 'spell_mp_hellfire_shielding_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:primal-endurance}}, 'spell_mp_primal_endurance_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:lichs-bane}}, 'spell_mp_lichs_bane_aura')",
+      "INSERT INTO spell_script_names (spell_id, ScriptName) VALUES ({{id:glacial-fortress}}, 'spell_mp_glacial_fortress_aura')"
+    ]
+  },
+  "uninstall": {
+    "world": [
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:titans-strength}} AND ScriptName = 'spell_mp_titans_strength_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:steel-forged}} AND ScriptName = 'spell_mp_steel_forged_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:celestial-grace}} AND ScriptName = 'spell_mp_celestial_grace_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:forbidden-knowledge}} AND ScriptName = 'spell_mp_forbidden_knowledge_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:spectral-reflexes}} AND ScriptName = 'spell_mp_spectral_reflexes_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:eldritch-barrier}} AND ScriptName = 'spell_mp_eldritch_barrier_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:hellfire-shielding}} AND ScriptName = 'spell_mp_hellfire_shielding_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:primal-endurance}} AND ScriptName = 'spell_mp_primal_endurance_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:lichs-bane}} AND ScriptName = 'spell_mp_lichs_bane_aura'",
+      "DELETE FROM spell_script_names WHERE spell_id = {{id:glacial-fortress}} AND ScriptName = 'spell_mp_glacial_fortress_aura'"
+    ]
+  }
+}

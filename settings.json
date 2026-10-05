@@ -10,9 +10,531 @@
       "default": true,
       "apply": "restart",
       "label": {
-        "en": "Enable Mythic Plus",
-        "ru": "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c Mythic Plus"
+        "en": "Enabled"
       }
+    },
+    {
+      "key": "MythicPlus.EnableItemRewards",
+      "type": "bool",
+      "default": true,
+      "apply": "restart",
+      "label": {
+        "en": "Enable Item Rewards"
+      }
+    },
+    {
+      "key": "MythicPlus.EnableDeathLimits",
+      "type": "bool",
+      "default": true,
+      "apply": "restart",
+      "label": {
+        "en": "Enable Death Limits"
+      }
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonHealth",
+      "type": "float",
+      "default": 1.25,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonMelee",
+      "type": "float",
+      "default": 1.25,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBaseDamage",
+      "type": "float",
+      "default": 1.5,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonSpell",
+      "type": "float",
+      "default": 1.15,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonArmor",
+      "type": "float",
+      "default": 1.95,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonAvgLevel",
+      "type": "int",
+      "default": 83,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Avg Level"
+      },
+      "min": 1,
+      "max": 255
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossHealth",
+      "type": "float",
+      "default": 1.5,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossMelee",
+      "type": "float",
+      "default": 1.35,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossBaseDamage",
+      "type": "float",
+      "default": 2.0,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossSpell",
+      "type": "float",
+      "default": 1.25,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossArmor",
+      "type": "float",
+      "default": 1.35,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DungeonBossLevel",
+      "type": "int",
+      "default": 85,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Dungeon Boss Level"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonHealth",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonMelee",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBaseDamage",
+      "type": "float",
+      "default": 2.75,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonSpell",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonArmor",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonAvgLevel",
+      "type": "int",
+      "default": 85,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Avg Level"
+      },
+      "min": 1,
+      "max": 255
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossHealth",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossMelee",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossSpell",
+      "type": "float",
+      "default": 2.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossBaseDamage",
+      "type": "float",
+      "default": 4.0,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossArmor",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.DungeonBossLevel",
+      "type": "int",
+      "default": 87,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Dungeon Boss Level"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonHealth",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonMelee",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBaseDamage",
+      "type": "float",
+      "default": 4.75,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonSpell",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonArmor",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonAvgLevel",
+      "type": "int",
+      "default": 87,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Avg Level"
+      },
+      "min": 1,
+      "max": 255
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossHealth",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Health"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossMelee",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Melee"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossSpell",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Spell"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossBaseDamage",
+      "type": "float",
+      "default": 6.0,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Base Damage"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossArmor",
+      "type": "float",
+      "default": 3.25,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Armor"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.DungeonBossLevel",
+      "type": "int",
+      "default": 90,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Dungeon Boss Level"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Mythic.DeathAllowance",
+      "type": "int",
+      "default": 100,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Death Allowance"
+      },
+      "min": 0,
+      "hint": {
+        "en": "Allowed deaths before resetting the instance; 0 means unlimited.",
+        "ru": "Допустимое число смертей до сброса подземелья; 0 — без ограничения."
+      }
+    },
+    {
+      "key": "MythicPlus.Legendary.DeathAllowance",
+      "type": "int",
+      "default": 30,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Death Allowance"
+      },
+      "min": 0,
+      "hint": {
+        "en": "Allowed deaths before resetting the instance; 0 means unlimited.",
+        "ru": "Допустимое число смертей до сброса подземелья; 0 — без ограничения."
+      }
+    },
+    {
+      "key": "MythicPlus.Ascendant.DeathAllowance",
+      "type": "int",
+      "default": 15,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Death Allowance"
+      },
+      "min": 0,
+      "hint": {
+        "en": "Allowed deaths before resetting the instance; 0 means unlimited.",
+        "ru": "Допустимое число смертей до сброса подземелья; 0 — без ограничения."
+      }
+    },
+    {
+      "key": "MythicPlus.Mythic.ItemOffset",
+      "type": "int",
+      "default": 20000000,
+      "apply": "restart",
+      "label": {
+        "en": "Mythic: Item Offset"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Legendary.ItemOffset",
+      "type": "int",
+      "default": 21000000,
+      "apply": "restart",
+      "label": {
+        "en": "Legendary: Item Offset"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.Ascendant.ItemOffset",
+      "type": "int",
+      "default": 22000000,
+      "apply": "restart",
+      "label": {
+        "en": "Ascendant: Item Offset"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.DiminishingExponent",
+      "type": "float",
+      "default": 0.96,
+      "apply": "restart",
+      "label": {
+        "en": "Diminishing Exponent"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.DiminishingThreshold.Mythic",
+      "type": "int",
+      "default": 10000,
+      "apply": "restart",
+      "label": {
+        "en": "Diminishing Threshold: Mythic"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.DiminishingThreshold.Legendary",
+      "type": "int",
+      "default": 20000,
+      "apply": "restart",
+      "label": {
+        "en": "Diminishing Threshold: Legendary"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.DiminishingThreshold.Ascendant",
+      "type": "int",
+      "default": 40000,
+      "apply": "restart",
+      "label": {
+        "en": "Diminishing Threshold: Ascendant"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.ElementalMeleeReducer",
+      "type": "float",
+      "default": 0.5,
+      "apply": "restart",
+      "label": {
+        "en": "Elemental Melee Reducer"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.NormalEnemyReducer",
+      "type": "float",
+      "default": 0.5,
+      "apply": "restart",
+      "label": {
+        "en": "Normal Enemy Reducer"
+      },
+      "min": 0
+    },
+    {
+      "key": "MythicPlus.NonCreatureSpellReducer",
+      "type": "float",
+      "default": 0.5,
+      "apply": "restart",
+      "label": {
+        "en": "Non Creature Spell Reducer"
+      },
+      "min": 0
     }
   ]
 }

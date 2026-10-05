@@ -1,0 +1,2 @@
+*.patch -whitespace
+* text=auto eol=lf
