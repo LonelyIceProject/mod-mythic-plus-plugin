@@ -1,0 +1,18 @@
+{
+  "group": {
+    "en": "Mythic Plus",
+    "ru": "Mythic Plus"
+  },
+  "fields": [
+    {
+      "key": "MythicPlus.Enabled",
+      "type": "bool",
+      "default": true,
+      "apply": "restart",
+      "label": {
+        "en": "Enable Mythic Plus",
+        "ru": "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c Mythic Plus"
+      }
+    }
+  ]
+}

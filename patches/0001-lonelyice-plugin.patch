@@ -1,0 +1,207 @@
+diff --git a/src/MpLogger.h b/src/MpLogger.h
+index 1d62e05..521d47b 100644
+--- a/src/MpLogger.h
++++ b/src/MpLogger.h
+@@ -2,74 +2,52 @@
+ #define MP_LOGGER_H
+ 
+ #include "Log.h"
+-#include <exception>
+-#include <iostream>
+-#include <boost/stacktrace.hpp>
++#include "StringFormat.h"
++#include <type_traits>
++#include <utility>
+ 
+ class MpLogger
+ {
++    template<class T>
++    static decltype(auto) FormatArg(T&& value)
++    {
++        if constexpr (std::is_enum_v<std::decay_t<T>>)
++            return static_cast<std::underlying_type_t<std::decay_t<T>>>(value);
++        else
++            return std::forward<T>(value);
++    }
+ 
+ public:
+     template<typename... Args>
+-    static void debug(const char* fmt, Args&&... args) {
+-        try {
+-            LOG_DEBUG("module.MythicPlus", "[MythicPlus] DEBUG " + std::string(fmt), std::forward<Args>(args)...);
+-        } catch (const std::exception& e) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] DEBUG EXCEPTION: " + std::string(e.what()) +
+-                      "\nStack trace: " + boost::stacktrace::to_string(boost::stacktrace::stacktrace()));
+-        } catch (...) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] DEBUG NON-STANDARD EXCEPTION");
+-        }
++    static void debug(char const* format, Args&&... args)
++    {
++        LOG_DEBUG("module.MythicPlus", "{}", Acore::StringFormat(format, FormatArg(std::forward<Args>(args))...));
+     }
+ 
+     template<typename... Args>
+-    static void error(const char* fmt, Args&&... args) {
+-        try {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] ERROR " + std::string(fmt), std::forward<Args>(args)...);
+-        } catch (const std::exception& e) {
+-
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] ERROR EXCEPTION: " + std::string(e.what()) +
+-                      "\nStack trace: " + boost::stacktrace::to_string(boost::stacktrace::stacktrace()));
+-        } catch (...) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] ERROR NON-STANDARD EXCEPTION");
+-        }
++    static void error(char const* format, Args&&... args)
++    {
++        LOG_ERROR("module.MythicPlus", "{}", Acore::StringFormat(format, FormatArg(std::forward<Args>(args))...));
+     }
+ 
+     template<typename... Args>
+-    static void info(const char* fmt, Args&&... args) {
+-        try {
+-            LOG_INFO("module.MythicPlus", "[MythicPlus] INFO " + std::string(fmt), std::forward<Args>(args)...);
+-        } catch (const std::exception& e) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] INFO EXCEPTION: " + std::string(e.what()) +
+-                      "\nStack trace: " + boost::stacktrace::to_string(boost::stacktrace::stacktrace()));
+-        } catch (...) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] INFO NON-STANDARD EXCEPTION");
+-        }
++    static void info(char const* format, Args&&... args)
++    {
++        LOG_INFO("module.MythicPlus", "{}", Acore::StringFormat(format, FormatArg(std::forward<Args>(args))...));
+     }
+ 
+     template<typename... Args>
+-    static void warn(const char* fmt, Args&&... args) {
+-        try {
+-            LOG_WARN("module.MythicPlus", "[MythicPlus] WARN " + std::string(fmt), std::forward<Args>(args)...);
+-        } catch (const std::exception& e) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] WARN EXCEPTION: " + std::string(e.what()) +
+-                      "\nStack trace: " + boost::stacktrace::to_string(boost::stacktrace::stacktrace()));
+-        } catch (...) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] WARN NON-STANDARD EXCEPTION");
+-        }
++    static void warn(char const* format, Args&&... args)
++    {
++        LOG_WARN("module.MythicPlus", "{}", Acore::StringFormat(format, FormatArg(std::forward<Args>(args))...));
+     }
+ 
+     template<typename... Args>
+-    static void trace(const char* fmt, Args&&... args) {
+-        try {
+-            LOG_TRACE("module.MythicPlus", "[MythicPlus] TRACE " + std::string(fmt), std::forward<Args>(args)...);
+-        } catch (const std::exception& e) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] TRACE EXCEPTION: " + std::string(e.what()) +
+-                      "\nStack trace: " + boost::stacktrace::to_string(boost::stacktrace::stacktrace()));
+-        } catch (...) {
+-            LOG_ERROR("module.MythicPlus", "[MythicPlus] TRACE NON-STANDARD EXCEPTION");
+-        }
++    static void trace(char const* format, Args&&... args)
++    {
++        LOG_TRACE("module.MythicPlus", "{}", Acore::StringFormat(format, FormatArg(std::forward<Args>(args))...));
+     }
++
+ };
+ 
+-#endif // MP_LOGGER_H
++#endif
+diff --git a/src/MythicPlus_loader.cpp b/src/MythicPlus_loader.cpp
+index 415acf3..6bcd5a0 100755
+--- a/src/MythicPlus_loader.cpp
++++ b/src/MythicPlus_loader.cpp
+@@ -1,6 +1,6 @@
+ #include "MpScheduler.h"
+ #include "MpLogger.h"
+-#include "Spells/AdvancmentSpells.cpp"
++
+ 
+ // Creature Overrides
+ enum {
+diff --git a/src/Scripts/PlayerMessageEvents.cpp b/src/Scripts/PlayerMessageEvents.cpp
+index 97bef34..317df63 100644
+--- a/src/Scripts/PlayerMessageEvents.cpp
++++ b/src/Scripts/PlayerMessageEvents.cpp
+@@ -30,7 +30,7 @@ public:
+     /**
+      * Listens to AddOn Chat channel for Mythic+ communication between UI and server mythic+ functionality
+      */
+-    void OnChat(Player* player, uint32 type, uint32 lang, std::string& msg, Player* receiver) override
++    void OnPlayerChat(Player* player, uint32 type, uint32 lang, std::string& msg, Player* receiver) override
+     {
+         // All communication from the client should be a whisper to themselves over tha addon channel
+         if(!player || !receiver) {
+@@ -56,7 +56,7 @@ public:
+      *
+      * Load advancement data for the player at load time used to apply buffs.
+      */
+-    // void OnLogin(Player* player) override
++    // void OnPlayerLogin(Player* player) override
+     // {
+     //     if(!player) {
+     //         return;
+diff --git a/src/Scripts/PlayerScript.cpp b/src/Scripts/PlayerScript.cpp
+index 4bb42cb..6112bd4 100644
+--- a/src/Scripts/PlayerScript.cpp
++++ b/src/Scripts/PlayerScript.cpp
+@@ -111,7 +111,7 @@ public:
+                     // }
+     }
+ 
+-    void OnBeforeLootMoney(Player* player, Loot* loot) override
++    void OnPlayerBeforeLootMoney(Player* player, Loot* loot) override
+     {
+         if (!loot->sourceWorldObjectGUID.IsCreature()) return;
+ 
+@@ -164,7 +164,7 @@ public:
+         loot->gold = newGold;
+     }
+ 
+-    void OnGiveXP(Player* player, uint32& amount, Unit* victim, uint8 xpSource) override
++    void OnPlayerGiveXP(Player* player, uint32& amount, Unit* victim, uint8 xpSource) override
+     {
+         if (xpSource != XPSOURCE_KILL || !victim) return;
+ 
+@@ -197,7 +197,7 @@ public:
+ 
+         amount = uint32(newBaseXP * xpMod * 1.5f); // flat bonus modifier for mythic dungeons
+     }
+-    void OnLogin(Player* player) override
++    void OnPlayerLogin(Player* player) override
+     {
+         MpLogger::info("Player {} logged in", player->GetName());
+ 
+@@ -213,7 +213,7 @@ public:
+     }
+ 
+     // When a player is bound to an instance need to make sure they are saved in the data soure to retrieve later.
+-    void OnBindToInstance(Player* player, Difficulty /*difficulty*/, uint32 mapId, bool /*permanent*/) override
++    void OnPlayerBindToInstance(Player* player, Difficulty /*difficulty*/, uint32 mapId, bool /*permanent*/) override
+     {
+         if(!player) {
+             return;
+diff --git a/src/Scripts/UnitScript.cpp b/src/Scripts/UnitScript.cpp
+index 3db66ae..5309de8 100644
+--- a/src/Scripts/UnitScript.cpp
++++ b/src/Scripts/UnitScript.cpp
+@@ -7,7 +7,7 @@
+ class MythicPlus_UnitScript : public UnitScript
+ {
+ public:
+-    MythicPlus_UnitScript() : UnitScript("MythicPlus_UnitScript", true) { }
++    MythicPlus_UnitScript() : UnitScript("MythicPlus_UnitScript") { }
+ 
+ private:
+     /**
+diff --git a/src/Scripts/WorldScript.cpp b/src/Scripts/WorldScript.cpp
+index d023f2b..af1f70c 100644
+--- a/src/Scripts/WorldScript.cpp
++++ b/src/Scripts/WorldScript.cpp
+@@ -5,7 +5,7 @@
+ #include "MpLogger.h"
+ #include "Player.h"
+ #include "ScriptMgr.h"
+-#include "MpEventHandlers.cpp"
++void MP_Register_EventHandlers();
+ 
+ class MythicPlus_WorldScript : public WorldScript
+ {

@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "id": "mod-mythic-plus",
+  "version": "0.1.0",
+  "name": {
+    "en": "Mythic Plus",
+    "ru": "Mythic Plus"
+  },
+  "description": {
+    "en": "Mythic Plus for LonelyIce",
+    "ru": "Mythic Plus для LonelyIce"
+  },
+  "authors": [
+    "araxiaonline",
+    "Ben Carter"
+  ],
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/LonelyIceProject/mod-mythic-plus-plugin",
+  "locales": [
+    "en"
+  ],
+  "source": {
+    "repo": "https://github.com/araxiaonline/mod-mythic-plus.git",
+    "commit": "565922c456902f258b258198a66b842a149a695e"
+  },
+  "core": {
+    "abi": "lonelyice-ac-2"
+  },
+  "platforms": [
+    "windows-x64"
+  ],
+  "server": {
+    "library": "mod_mythic_plus"
+  },
+  "settings": "settings.json",
+  "config": "conf/mod-mythic-plus.conf.dist",
+  "databases": {
+    "world": "data/sql/db-world",
+    "characters": "data/sql/db-characters"
+  }
+}
